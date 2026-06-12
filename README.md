@@ -253,14 +253,14 @@ Proxied domains by default: Telegram, Discord, WhatsApp, Facebook, Twitter/X, Li
 
 If SpaceClip saves you time, consider buying me a coffee!
 
-**BEP-20 (Binance Smart Chain)**
+**USDT (BEP-20 — Binance Smart Chain)**
 
 ```
 0xe8b80722fc68c66248b68f31f3e4af9c126766bc
 ```
 
 > [!WARNING]
-> Send **BEP-20 tokens only**. Other networks will result in permanent loss.
+> Send **USDT on BEP-20 network only**. Other networks will result in permanent loss.
 
 ---
 
