@@ -1,0 +1,24 @@
+name: 🚀 Auto Deploy to HF Space
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:  # Manual trigger bhi kar sakte ho
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📤 Push to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          echo "🚀 Deploying to HF Space..."
+          git remote add hf "https://aman4899:${HF_TOKEN}@huggingface.co/spaces/aman4899/spaceclip"
+          git push -f hf main
+          echo "✅ Deployed! https://huggingface.co/spaces/aman4899/spaceclip"
