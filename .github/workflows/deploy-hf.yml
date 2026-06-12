@@ -34,7 +34,7 @@ jobs:
 
           # Remove old remote if exists, then add fresh
           git remote remove hf 2>/dev/null || true
-          git remote add hf "https://aman4899:${HF_TOKEN}@huggingface.co/spaces/aman4899/spaceclip"
+          git remote add hf "https://ankush4899:${HF_TOKEN}@huggingface.co/spaces/ankush4899/spaceclip"
 
           # Pull latest from HF Space first to avoid conflicts
           git fetch hf 2>/dev/null || true
@@ -44,4 +44,4 @@ jobs:
 
           echo ""
           echo "✅ Deployed successfully!"
-          echo "   https://huggingface.co/spaces/aman4899/spaceclip"
+          echo "   https://huggingface.co/spaces/ankush4899/spaceclip"
