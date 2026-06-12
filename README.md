@@ -21,241 +21,237 @@ secrets:
 ---
 
 <!-- Badges -->
-[![GitHub Stars](https://img.shields.io/github/stars/technicalboy2023/spaceclip?style=flat-square)](https://github.com/technicalboy2023/spaceclip)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![HF Space](https://img.shields.io/badge/🤗%20HuggingFace-Space-blue?style=flat-square)](https://huggingface.co/spaces/technicalboy2023/HuggingClip)
-[![Paperclip](https://img.shields.io/badge/Paperclip-AI%20Agents-purple?style=flat-square)](https://paperclip.ing)
+<p align="center">
+  <a href="https://github.com/technicalboy2023/spaceclip/stargazers"><img src="https://img.shields.io/github/stars/technicalboy2023/spaceclip?style=for-the-badge&logo=github&color=gold" alt="GitHub Stars"></a>
+  <a href="https://github.com/technicalboy2023/spaceclip/network"><img src="https://img.shields.io/github/forks/technicalboy2023/spaceclip?style=for-the-badge&logo=github&color=blue" alt="GitHub Forks"></a>
+  <a href="https://github.com/technicalboy2023/spaceclip/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=open-source-initiative" alt="License: MIT"></a>
+  <a href="https://huggingface.co/spaces/technicalboy2023/HuggingClip"><img src="https://img.shields.io/badge/🤗%20HuggingFace-Space-blue?style=for-the-badge" alt="HF Space"></a>
+  <a href="https://github.com/technicalboy2023/spaceclip/commits/main"><img src="https://img.shields.io/github/last-commit/technicalboy2023/spaceclip?style=for-the-badge&logo=git&color=brightgreen" alt="Last Commit"></a>
+  <a href="https://paperclip.ing"><img src="https://img.shields.io/badge/Paperclip-AI%20Agents-purple?style=for-the-badge" alt="Paperclip"></a>
+</p>
 
-**Run your own AI agent orchestration platform — free, no server needed.** HuggingClip deploys [Paperclip](https://paperclip.ing) on Hugging Face Spaces, giving you a persistent AI agent platform that works with any LLM (Claude, GPT, Gemini, etc.). Deploy in minutes on the free HF Spaces tier (2 vCPU, 16GB RAM) with automatic database backup to a private HF Dataset so your agents, tasks, and conversations survive restarts.
+<!-- Loading animation for HF Space -->
+<div align="center">
+  <img src="https://img.shields.io/badge/Status-Online-success?style=flat-square&logo=statuspage" alt="Status"/>
+  <img src="https://img.shields.io/badge/Runtime-Docker-blue?style=flat-square&logo=docker" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=flat-square&logo=postgresql" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/GPU-Free-brightgreen?style=flat-square&logo=nvidia" alt="Free GPU"/>
+</div>
 
-## Table of Contents
+<br/>
 
-- [✨ Features](#-features)
-- [🚀 Quick Start](#-quick-start)
-- [🔑 Configuration](#-configuration)
-- [🤖 LLM Providers](#-llm-providers)
-- [🌐 Cloudflare Proxy *(Optional)*](#-cloudflare-proxy-optional)
-- [💾 Database Backup *(Optional)*](#-database-backup-optional)
-- [💓 Staying Alive](#-staying-alive)
-- [💻 Local Development](#-local-development)
-- [🏗️ Architecture](#️-architecture)
-- [🐛 Troubleshooting](#-troubleshooting)
-- [📚 Links](#-links)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+<h1 align="center">HuggingClip 🚀</h1>
+<p align="center"><strong>Deploy a fully-featured AI agent orchestration platform on Hugging Face Spaces for free.</strong><br/>Run Claude Code, OpenAI GPT, and Google Gemini agents with persistent storage, auto failover, and zero maintenance.</p>
+
+<hr/>
+
+## Why HuggingClip?
+
+Most AI agent platforms require expensive cloud servers or complex Kubernetes setups. **HuggingClip** runs the entire [Paperclip](https://paperclip.ing) platform on Hugging Face's **free Docker Space tier** (2 vCPU, 16GB RAM). No credit card, no server management, no Docker experience needed.
+
+```bash
+# One click to deploy — that's it.
+# 1. Go to: https://huggingface.co/spaces/technicalboy2023/HuggingClip
+# 2. Click "Duplicate this Space"
+# 3. Add your API key
+# Done. Your agents are running.
+```
+
+---
 
 ## ✨ Features
 
-- 🤖 **Any LLM:** Use Claude, OpenAI GPT, Google Gemini, and more — just set the API key.
-- ⚡ **One-click deploy:** Duplicate the Space and add your API key — nothing else needed to get started.
-- 💾 **Persistent Database:** PostgreSQL database auto-backed up to a private HF Dataset and restored on every restart — no data loss.
-- 📊 **Visual Dashboard:** Real-time status dashboard at `/` with Paperclip service health, backup status, and uptime.
-- ⏰ **Keep-Alive:** Uses `CLOUDFLARE_WORKERS_TOKEN` to automatically set up a cron-triggered keep-awake worker at boot.
-- 🌐 **Cloudflare Proxy:** Auto-provisions a Cloudflare Worker proxy for blocked outbound connections.
-- 🔒 **Secure by Default:** Auth secrets randomly generated on first boot and persisted across restarts.
-- 🏠 **100% HF-Native:** Runs entirely on Hugging Face's free infrastructure.
+| Category | Feature | What it means for you |
+|----------|---------|----------------------|
+| 🤖 **Multi-LLM** | Claude, GPT, Gemini | Pick the best model per task — or use all three |
+| ⚡ **One-click Deploy** | Duplicate & run | No config, no CLI, no AWS — just a browser |
+| 💾 **Auto Persistence** | HF Dataset backup | PostgreSQL auto-syncs to a private dataset — zero data loss on restart |
+| 📊 **Live Dashboard** | Real-time health monitor | See uptime, backup status, plugin count at a glance |
+| 🌐 **Cloudflare Proxy** | Bypass network blocks | Automatically routes blocked APIs (Telegram, Discord, etc.) through Cloudflare |
+| ⏰ **Keep-Awake Cron** | Auto cron pings | Cloudflare Worker pings your Space every 10 minutes — prevents sleep |
+| 🔒 **Secure by Default** | Auto secrets rotation | Randomized passwords, encrypted storage, non-root execution |
+| 🏠 **100% HF-Native** | Free tier friendly | Runs entirely on Hugging Face's free infrastructure |
 
-## 🚀 Quick Start
+---
 
-### Step 1: Duplicate this Space
+## 👥 Who Is This For?
+
+| If you... | HuggingClip is for you |
+|-----------|----------------------|
+| 🤯 Are tired of paying $20–$200/mo for AI agent hosting | ✅ **Free on HF Spaces** |
+| 🔧 Want to use Claude Code without a local machine | ✅ **Browser-based Claude Code** |
+| 💼 Need persistent agent workflows that survive restarts | ✅ **Auto backup to HF Dataset** |
+| 🌐 Want to connect agents to Telegram, Discord, email | ✅ **Built-in Cloudflare proxy** |
+| 🐍 Prefer Python for automation | ✅ **Runs any LLM, any agent** |
+| ☁️ Are new to Docker but want AI agents | ✅ **No Docker skills needed** |
+
+---
+
+## 🚀 Quick Start (3 Minutes)
+
+### Step 1: Duplicate the Space
 
 [![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/resolve/main/duplicate-this-space-xl.svg)](https://huggingface.co/spaces/technicalboy2023/HuggingClip?duplicate=true)
 
-### Step 2: Add Your Secrets
+### Step 2: Add Your API Key
 
-In your new Space's **Settings → Variables and secrets**, add at least one LLM key under **Secrets**:
+In your Space's **Settings → Variables and secrets**, add one (or more) of these:
 
-| Secret | Description |
-| :--- | :--- |
-| `ANTHROPIC_API_KEY` | Claude API key from [console.anthropic.com](https://console.anthropic.com) |
-| `GEMINI_API_KEY` | Google AI Studio key from [ai.google.dev](https://ai.google.dev) |
-| `OPENAI_API_KEY` | OpenAI key from [platform.openai.com](https://platform.openai.com) |
+| Secret | Provider | Get Your Key |
+|--------|----------|-------------|
+| `ANTHROPIC_API_KEY` | **Claude** (Anthropic) | [console.anthropic.com](https://console.anthropic.com) |
+| `GEMINI_API_KEY` | **Gemini** (Google) | [ai.google.dev](https://ai.google.dev) |
+| `OPENAI_API_KEY` | **GPT** (OpenAI) | [platform.openai.com](https://platform.openai.com) |
+| `HF_TOKEN` | **Backup** (HF Dataset) | [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) |
 
 > [!TIP]
-> Add `HF_TOKEN` (a token with write access to your account) to enable database backup persistence. Without it, data is lost on restart.
+> Always add `HF_TOKEN` for database persistence. Without it, your agents, tasks, and conversations reset on every restart.
 
-### Step 3: Deploy & Run
+### Step 3: Launch
 
-The Space builds automatically. Monitor progress in the **Logs** tab. First build takes ~60s; subsequent builds are cached.
+The Space builds automatically (~60s). Open the **Logs** tab, wait for `HuggingClip is ready!`, then visit your Space URL.
 
-### Step 4: Set Up Admin Account
+### Step 4: Create Admin Account
 
-On first boot, the dashboard at `/` shows an admin setup link. Click it to create your admin account and complete Paperclip onboarding.
+On first boot, the dashboard shows an admin invite URL. Click it → set up your account → start building agents.
 
-## 🔑 Configuration
+---
 
-### Required
+## 💡 Use Cases
 
-No secrets are strictly required to start, but you need at least one LLM key to use agents:
+- **Personal AI Assistant Hub** — One dashboard for Claude, GPT, and Gemini agents
+- **Code Review Automation** — Claude Code reviews PRs, writes tests, refactors code
+- **Content Workflow** — Gemini drafts, GPT edits, Claude publishes
+- **DevOps Agent** — Monitor logs, restart services, respond to alerts
+- **Research Pipeline** — Web research → summarization → report generation
+- **Social Media Bot** — Auto-post to Telegram, Discord, Twitter via Cloudflare proxy
 
-| Variable | Description |
-| :--- | :--- |
-| `ANTHROPIC_API_KEY` | Claude agents |
-| `GEMINI_API_KEY` | Gemini agents |
-| `OPENAI_API_KEY` | OpenAI agents |
+---
 
-### Recommended
+## 🔑 Configuration Reference
+
+### Secrets (Set in HF Space Settings)
+
+| Variable | Required? | Default | Description |
+|----------|-----------|---------|-------------|
+| `ANTHROPIC_API_KEY` | No* | — | Claude API key — enables Claude Code agents |
+| `GEMINI_API_KEY` | No* | — | Google Gemini API key |
+| `OPENAI_API_KEY` | No* | — | OpenAI API key for GPT agents |
+| `HF_TOKEN` | No | — | HF write token — enables database backup persistence |
+| `CLAUDE_CODE_OAUTH_TOKEN` | No | — | Long-lived Claude OAuth token (1 year, no per-token cost) |
+| `CLOUDFLARE_WORKERS_TOKEN` | No | — | Auto-creates proxy + keep-awake workers |
+
+*\*At least one LLM key required for agents to work.*
+
+### Environment Variables
 
 | Variable | Default | Description |
-| :--- | :--- | :--- |
-| `HF_TOKEN` | — | HF token with write access — enables DB backup persistence |
-| `BACKUP_DATASET_NAME` | `huggingclip-backup` | Dataset name for backup repo |
-| `SYNC_INTERVAL` | `180` | Backup interval in seconds |
-
-### Advanced
-
-| Variable | Default | Description |
-| :--- | :--- | :--- |
+|----------|---------|-------------|
 | `PAPERCLIP_DEPLOYMENT_MODE` | `authenticated` | `authenticated` or `local` |
-| `BETTER_AUTH_SECRET` | auto-generated | Auth secret (auto-persisted on first boot) |
-| `PAPERCLIP_AGENT_JWT_SECRET` | auto-generated | Agent JWT secret (auto-persisted on first boot) |
-| `SYNC_MAX_FILE_BYTES` | `52428800` | Max backup size in bytes (50MB default) |
-| `CLOUDFLARE_KEEPALIVE_ENABLED` | `true` | Set to `false` to disable the automatic Cloudflare KeepAlive worker |
+| `BACKUP_DATASET_NAME` | `huggingclip-backup` | HF Dataset name for backups |
+| `SYNC_INTERVAL` | `3600` | Backup interval in seconds |
+| `SYNC_MAX_FILE_BYTES` | `52428800` | Max backup size (50MB) |
+| `BETTER_AUTH_SECRET` | auto-generated | Auth secret (auto-persisted) |
 
-## 🤖 LLM Providers
-
-Set the relevant API key and Paperclip will use it automatically when you configure agents:
-
-| Provider | Secret | Get Key |
-| :--- | :--- | :--- |
-| **Anthropic (Claude)** | `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com) |
-| **Google (Gemini)** | `GEMINI_API_KEY` | [ai.google.dev](https://ai.google.dev) |
-| **OpenAI (GPT)** | `OPENAI_API_KEY` | [platform.openai.com](https://platform.openai.com) |
-
-You can add multiple providers — Paperclip lets you choose the model per-agent.
-
-## 🌐 Cloudflare Proxy *(Optional)*
-
-Hugging Face Spaces sometimes blocks outbound connections to external APIs. HuggingClip includes the same transparent Cloudflare proxy approach used in HuggingClaw and Hugging8n.
-
-**Automatic setup:**
-
-1. Create a Cloudflare API Token (`Workers Scripts: Edit` permission).
-2. Add `CLOUDFLARE_WORKERS_TOKEN` as a Space secret.
-3. Restart the Space.
-
-HuggingClip will:
-
-- Create or update a Worker named from your Space host
-- Generate a private shared secret automatically
-- Transparently route outbound traffic through Cloudflare
-
-| Variable | Default | Description |
-| :--- | :--- | :--- |
-| `CLOUDFLARE_WORKERS_TOKEN` | — | Cloudflare API token |
-| `CLOUDFLARE_ACCOUNT_ID` | auto | Optional account ID override |
-| `CLOUDFLARE_PROXY_DOMAINS` | — | Extra domains to proxy, merged with built-in defaults. Set to `*` to proxy all external traffic. |
-
-## 💾 Database Backup *(Optional)*
-
-HuggingClip automatically backs up your Paperclip PostgreSQL database to a private HF Dataset on every sync cycle and restores it on startup.
-
-**What's backed up:**
-
-- Full PostgreSQL SQL dump
-- Paperclip config, secrets, and data files
-- Packaged as `snapshots/latest.tar.gz` in your `huggingclip-backup` dataset
-
-**Setup:** Add `HF_TOKEN` (write-access token) to Space secrets. The dataset `<your-username>/huggingclip-backup` is created automatically on first sync.
-
-> [!NOTE]
-> Without `HF_TOKEN`, the app runs fine but all data is lost on Space restart. Set it up from the start to avoid losing agent configurations.
-
-## 💓 Staying Alive *(Recommended on Free HF Spaces)*
-
-Your Space will automatically be kept awake by a background Cloudflare Worker when you configure the `CLOUDFLARE_WORKERS_TOKEN` secret. The worker uses a cron trigger to regularly ping your Space's `/health` endpoint. The dashboard displays the current keep-alive worker status.
-
-## 💻 Local Development
-
-```bash
-git clone https://github.com/technicalboy2023/huggingclip.git
-cd huggingclip
-cp .env.example .env
-# Edit .env with your API keys and HF_TOKEN
-```
-
-**With Docker:**
-
-```bash
-docker build -t huggingclip .
-docker run -p 7861:7861 \
-  -e HF_TOKEN=hf_xxxx \
-  -e ANTHROPIC_API_KEY=sk-ant-xxxx \
-  -v paperclip_data:/paperclip \
-  huggingclip
-```
-
-**With Docker Compose:**
-
-```bash
-docker-compose up -d
-# Dashboard: http://localhost:7861/
-# Paperclip UI: http://localhost:7861/app/
-```
+---
 
 ## 🏗️ Architecture
 
 ```
-HuggingClip/
-├── Dockerfile           # Multi-stage build: compile Paperclip from source
-├── start.sh             # Orchestrator: PostgreSQL, restore, config, launch
-├── health-server.js     # Dashboard, /health endpoint, reverse proxy to Paperclip
-├── paperclip-sync.py    # PostgreSQL backup/restore to HF Dataset
-├── cloudflare-proxy.js  # Transparent outbound proxy for blocked domains
-├── .env.example         # Environment variable reference
-└── README.md
+┌──────────────┐    Port 7861     ┌──────────────────┐
+│   Browser    │ ──────────────►  │  health-server.js │
+│  (Dashboard) │                  │  (Dashboard +     │
+└──────────────┘                  │   Reverse Proxy)  │
+                                  └───────┬──────────┘
+                                          │ proxy
+                                          ▼
+                                  ┌──────────────────┐
+                                  │   Paperclip App   │  Port 3100
+                                  │  (Agent Engine)   │
+                                  └───────┬──────────┘
+                                          │
+                  ┌───────────────────────┼───────────────────────┐
+                  ▼                       ▼                       ▼
+          ┌──────────────┐      ┌──────────────────┐     ┌──────────────┐
+          │  PostgreSQL   │      │  HF Dataset       │     │  Cloudflare   │
+          │  (Embedded)   │◄────►│  (Backup/Restore) │     │  Worker(s)    │
+          └──────────────┘      └──────────────────┘     │  (Proxy +     │
+                                                         │   KeepAlive)  │
+                                                         └──────────────┘
 ```
 
-**Startup sequence:**
+### Startup Flow
 
-1. Validate LLM provider keys (warn if none configured).
-2. Start PostgreSQL and create database.
-3. Generate or restore auth secrets (persist across restarts).
-4. Restore database and data files from HF Dataset backup (if `HF_TOKEN` set).
-5. Start background sync loop (every `SYNC_INTERVAL` seconds).
-6. Launch health server on port 7861 (dashboard + reverse proxy).
-7. Generate Paperclip instance config on first boot.
-8. Launch Paperclip server on port 3100.
-9. Bootstrap first admin account (shows invite URL in dashboard).
-10. On `SIGTERM`, wait for any in-flight sync, run final backup, exit cleanly.
+```
+1. Validate LLM keys ─► 2. Start PostgreSQL ─► 3. Restore backup from HF Dataset
+4. Start sync loop ──► 5. Launch health server (7861) ──► 6. Generate config
+7. Launch Paperclip (3100) ──► 8. Bootstrap admin ──► 9. Ready!
+```
 
-**Port layout:**
+---
 
-| Port | Service | Public? |
-| :--- | :--- | :--- |
-| `7861` | Health server (dashboard + proxy) | ✅ Yes |
-| `3100` | Paperclip API + UI | ❌ Internal only |
-| `5432` | PostgreSQL | ❌ Internal only |
+## 🛠️ Local Development
 
-## 🐛 Troubleshooting
+```bash
+git clone https://github.com/technicalboy2023/spaceclip.git
+cd spaceclip
+cp .env.example .env
+# Edit .env with your API keys
 
-**No LLM providers configured warning**
-Set at least one of `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, or `OPENAI_API_KEY` in Space secrets.
+# Option A: Docker
+docker build -t spaceclip .
+docker run -p 7861:7861 -e HF_TOKEN=hf_xxxx spaceclip
 
-**Admin setup link not showing**
-Check Space logs — if Paperclip started but admin setup link is missing, the bootstrap ran but found an existing account. Log in at `/app/`.
+# Option B: Docker Compose
+docker-compose up -d
+# Dashboard: http://localhost:7861/
+```
 
-**Backup not uploading**
-Verify `HF_TOKEN` is set and has write access. Check the dashboard backup status. Run manually: `python3 /app/paperclip-sync.py sync` from inside the container.
+---
 
-**Data lost after restart**
-`HF_TOKEN` is not set. Add it and the next restart will restore from backup. The backup also needs to have been run at least once before the restart.
+## 🌐 Cloudflare Integration (Optional)
 
-**Space keeps sleeping**
-Add `CLOUDFLARE_WORKERS_TOKEN` as a Space secret to enable automatic keep-awake monitoring via Cloudflare Workers.
+Hugging Face Spaces blocks some outbound connections. HuggingClip auto-provisions Cloudflare Workers to solve this:
 
-**Paperclip unreachable (502 errors)**
-Wait 60–90s after boot for Paperclip to initialize. If it stays unreachable, check logs for PostgreSQL connection errors or memory issues.
+| Worker | Purpose | Cron |
+|--------|---------|------|
+| **Proxy Worker** | Routes blocked API traffic through Cloudflare | On-demand |
+| **KeepAlive Worker** | Pings `/health` every 10 min to prevent Space sleep | `*/10 * * * *` |
 
-**Backup too large (>50MB)**
-Reduce `SYNC_MAX_FILE_BYTES` to skip large backups, or increase it. Alternatively, archive old agent runs inside Paperclip to reduce DB size.
+**Setup:** Add `CLOUDFLARE_WORKERS_TOKEN` as a Space secret. Everything else is automatic.
 
-**Stack overflow in recovery chains**
-Deep issue-dependency chains (1000+ nodes) created by runaway agents can hit a 500-node limit in the upstream recovery graph traversal. This is patched conservatively in the Dockerfile. File an issue upstream at [paperclipai/paperclip](https://github.com/paperclipai/paperclip) if you need larger chains.
+Proxied domains by default: Telegram, Discord, WhatsApp, Facebook, Twitter/X, LinkedIn, TikTok, Reddit, OpenAI, SendGrid, Google APIs.
+
+---
+
+## 🔍 Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| ❌ Agents don't run | Add at least one LLM API key to Space secrets |
+| 🔄 Data lost on restart | Set `HF_TOKEN` — backup must run once before restart |
+| 😴 Space keeps sleeping | Add `CLOUDFLARE_WORKERS_TOKEN` for auto keep-awake |
+| ⚠️ 502 errors on dashboard | Wait 60–90s for Paperclip to finish booting |
+| 📦 Backup too large | Increase `SYNC_MAX_FILE_BYTES` or archive old agent runs |
+| 🐢 Sync not running | Verify `HF_TOKEN` is valid and has write permissions |
+
+---
+
+## 📈 Project Status
+
+**Current:** Active development — deploying Paperclip v1 on HF Spaces.
+
+**Planned:**
+- 🔄 Multi-Space federation
+- 📦 Backup versioning
+- 📊 Prometheus/Grafana monitoring
+- 🐳 Kubernetes manifests
+
+---
 
 ## ❤️ Support
 
-If SpaceClip saves you time, consider buying me a coffee to keep the projects alive!
+If SpaceClip saves you time, consider buying me a coffee!
 
 **BEP-20 (Binance Smart Chain)**
 
@@ -264,17 +260,23 @@ If SpaceClip saves you time, consider buying me a coffee to keep the projects al
 ```
 
 > [!WARNING]
-> Send **BEP-20 tokens only**. Sending other tokens or using a different network will result in permanent loss.
+> Send **BEP-20 tokens only**. Other networks will result in permanent loss.
+
+---
 
 ## 📚 Links
 
-- [Paperclip Docs](https://paperclip.ing)
-- [Paperclip GitHub](https://github.com/paperclipai/paperclip)
-- [HuggingFace Spaces Docs](https://huggingface.co/docs/hub/spaces)
+- **[Paperclip Docs](https://paperclip.ing)** — Platform documentation
+- **[Paperclip GitHub](https://github.com/paperclipai/paperclip)** — Upstream project
+- **[HuggingFace Spaces](https://huggingface.co/docs/hub/spaces)** — HF Spaces guide
+- **[HF Token Setup](https://huggingface.co/settings/tokens)** — Get your API token
+- **[Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens)** — For proxy + keep-awake
+
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Check [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 📄 License
 
