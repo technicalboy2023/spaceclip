@@ -338,7 +338,7 @@ function renderDashboard(data) {
     <section class="overview">
       ${tiles}
     </section>
-    <footer>Built by <a href="https://github.com/somratpro" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">@somratpro</a></footer>
+    <footer>Built by <a href="https://github.com/technicalboy2023" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">@technicalboy2023</a></footer>
   </main>
   <script>
     document.querySelectorAll('.local-time').forEach(el => {

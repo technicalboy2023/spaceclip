@@ -4,7 +4,7 @@
 
 ### Bug Reports
 
-1. Check existing [issues](https://github.com/somratpro/HuggingClip/issues) first
+1. Check existing [issues](https://github.com/technicalboy2023/HuggingClip/issues) first
 2. Create a new issue with:
    - Clear title and description
    - Steps to reproduce
@@ -23,7 +23,7 @@
 
 ```bash
 # Clone
-git clone https://github.com/somratpro/HuggingClip.git
+git clone https://github.com/technicalboy2023/HuggingClip.git
 cd HuggingClip
 
 # Configure

@@ -21,9 +21,9 @@ secrets:
 ---
 
 <!-- Badges -->
-[![GitHub Stars](https://img.shields.io/github/stars/somratpro/huggingclip?style=flat-square)](https://github.com/somratpro/huggingclip)
+[![GitHub Stars](https://img.shields.io/github/stars/technicalboy2023/spaceclip?style=flat-square)](https://github.com/technicalboy2023/spaceclip)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![HF Space](https://img.shields.io/badge/🤗%20HuggingFace-Space-blue?style=flat-square)](https://huggingface.co/spaces/somratpro/HuggingClip)
+[![HF Space](https://img.shields.io/badge/🤗%20HuggingFace-Space-blue?style=flat-square)](https://huggingface.co/spaces/technicalboy2023/HuggingClip)
 [![Paperclip](https://img.shields.io/badge/Paperclip-AI%20Agents-purple?style=flat-square)](https://paperclip.ing)
 
 **Run your own AI agent orchestration platform — free, no server needed.** HuggingClip deploys [Paperclip](https://paperclip.ing) on Hugging Face Spaces, giving you a persistent AI agent platform that works with any LLM (Claude, GPT, Gemini, etc.). Deploy in minutes on the free HF Spaces tier (2 vCPU, 16GB RAM) with automatic database backup to a private HF Dataset so your agents, tasks, and conversations survive restarts.
@@ -59,7 +59,7 @@ secrets:
 
 ### Step 1: Duplicate this Space
 
-[![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/resolve/main/duplicate-this-space-xl.svg)](https://huggingface.co/spaces/somratpro/HuggingClip?duplicate=true)
+[![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/resolve/main/duplicate-this-space-xl.svg)](https://huggingface.co/spaces/technicalboy2023/HuggingClip?duplicate=true)
 
 ### Step 2: Add Your Secrets
 
@@ -168,7 +168,7 @@ Your Space will automatically be kept awake by a background Cloudflare Worker wh
 ## 💻 Local Development
 
 ```bash
-git clone https://github.com/somratpro/huggingclip.git
+git clone https://github.com/technicalboy2023/huggingclip.git
 cd huggingclip
 cp .env.example .env
 # Edit .env with your API keys and HF_TOKEN
@@ -253,36 +253,24 @@ Reduce `SYNC_MAX_FILE_BYTES` to skip large backups, or increase it. Alternativel
 **Stack overflow in recovery chains**
 Deep issue-dependency chains (1000+ nodes) created by runaway agents can hit a 500-node limit in the upstream recovery graph traversal. This is patched conservatively in the Dockerfile. File an issue upstream at [paperclipai/paperclip](https://github.com/paperclipai/paperclip) if you need larger chains.
 
-## 🌟 More Projects
+## ❤️ Support
 
-Similar projects by [@somratpro](https://github.com/somratpro) — all free, one-click deploy on HF Spaces:
+If SpaceClip saves you time, consider buying me a coffee to keep the projects alive!
 
-| Project | What it runs | HF Space | GitHub |
-| :--- | :--- | :--- | :--- |
-| **HuggingFlow** | DeerFlow — deep research agent | [Space](https://huggingface.co/spaces/somratpro/HuggingFlow) | [Repo](https://github.com/somratpro/HuggingFlow) |
-| **HuggingMes** | Hermes — Self-hosted agent gateway | [Space](https://huggingface.co/spaces/somratpro/HuggingMes) | [Repo](https://github.com/somratpro/huggingmes) |
-| **HuggingClaw** | OpenClaw — Claude Code in the browser | [Space](https://huggingface.co/spaces/somratpro/HuggingClaw) | [Repo](https://github.com/somratpro/huggingclaw) |
-| **Hugging8n** | n8n — workflow & automation platform | [Space](https://huggingface.co/spaces/somratpro/Hugging8n) | [Repo](https://github.com/somratpro/hugging8n) |
-| **HuggingPost** | Postiz — social media scheduler | [Space](https://huggingface.co/spaces/somratpro/HuggingPost) | [Repo](https://github.com/somratpro/HuggingPost) |
+**BEP-20 (Binance Smart Chain)**
+
+```
+0xe8b80722fc68c66248b68f31f3e4af9c126766bc
+```
+
+> [!WARNING]
+> Send **BEP-20 tokens only**. Sending other tokens or using a different network will result in permanent loss.
 
 ## 📚 Links
 
 - [Paperclip Docs](https://paperclip.ing)
 - [Paperclip GitHub](https://github.com/paperclipai/paperclip)
 - [HuggingFace Spaces Docs](https://huggingface.co/docs/hub/spaces)
-
-## ❤️ Support
-
-If HuggingClip saves you time, consider buying me a coffee to keep the projects alive!
-
-**USDT (TRC-20 / TRON network only)**
-
-```
-TELx8TJz1W1h7n6SgpgGNNGZXpJCEUZrdB
-```
-
-> [!WARNING]
-> Send **USDT on TRC-20 network only**. Sending other tokens or using a different network will result in permanent loss.
 
 ## 🤝 Contributing
 
@@ -292,4 +280,4 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 MIT — see [LICENSE](LICENSE) for details.
 
-*Made with ❤️ by [@somratpro](https://github.com/somratpro) for the Paperclip community.*
+*Made with ❤️ by [@technicalboy2023](https://github.com/technicalboy2023) for the Paperclip community.*
