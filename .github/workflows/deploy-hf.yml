@@ -3,7 +3,7 @@ name: 🚀 Auto Deploy to HF Space
 on:
   push:
     branches: [main]
-  workflow_dispatch:  # Manual trigger bhi kar sakte ho
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -14,11 +14,34 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 🔑 Check HF_TOKEN
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "❌ ERROR: HF_TOKEN secret is not set!"
+            echo "   Go to: https://github.com/technicalboy2023/spaceclip/settings/secrets/actions"
+            echo "   Add a new secret named HF_TOKEN with your Hugging Face token"
+            exit 1
+          fi
+          echo "✅ HF_TOKEN is set"
+
       - name: 📤 Push to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           echo "🚀 Deploying to HF Space..."
+
+          # Remove old remote if exists, then add fresh
+          git remote remove hf 2>/dev/null || true
           git remote add hf "https://aman4899:${HF_TOKEN}@huggingface.co/spaces/aman4899/spaceclip"
+
+          # Pull latest from HF Space first to avoid conflicts
+          git fetch hf 2>/dev/null || true
+
+          # Force push our main branch
           git push -f hf main
-          echo "✅ Deployed! https://huggingface.co/spaces/aman4899/spaceclip"
+
+          echo ""
+          echo "✅ Deployed successfully!"
+          echo "   https://huggingface.co/spaces/aman4899/spaceclip"
