@@ -41,6 +41,18 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Added `opencode-ai` CLI to agent install list (Dockerfile)
+- Added OpenCode wrapper script for NODE_OPTIONS compatibility
+- Added `@latest` tags to all npm-installed agent CLIs for deterministic versions
+- Added `--frozen-lockfile` flag to pnpm install for reproducible builds
+
+### Changed
+
+- Optimized Dockerfile builder stage: removed redundant `ls -la` layer
+- Multi-stage Dockerfile structure maintained for optimal image size
+
 ### Planned
 
 - Multi-Space federation support

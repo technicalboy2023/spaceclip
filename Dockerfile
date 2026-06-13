@@ -11,11 +11,9 @@ RUN apt-get update && apt-get install -y \
 # Clone Paperclip (depth=1 for speed, uses repo's default branch)
 RUN git clone --depth=1 https://github.com/paperclipai/paperclip.git .
 
-# Copy lock files early for cache efficiency: lock changes don't re-clone
-RUN ls -la pnpm-lock.yaml package.json 2>/dev/null || true
-
 # Install dependencies (corepack picks correct pnpm version from packageManager field)
-RUN pnpm install
+# --frozen-lockfile ensures deterministic builds across environments
+RUN pnpm install --frozen-lockfile
 
 # Apply both patches in a single layer (reduces layer count, cleaner git history)
 # Patch 1: React Router basename for /app path handling
@@ -55,7 +53,7 @@ RUN mkdir -p /var/run/postgresql && chown postgres:postgres /var/run/postgresql
 RUN npm init -y && npm install express@4 cors morgan
 
 # Install agent CLIs globally
-RUN npm install -g @google/gemini-cli @anthropic-ai/claude-code @openai/codex
+RUN npm install -g @google/gemini-cli@latest @anthropic-ai/claude-code@latest @openai/codex@latest opencode-ai@latest
 
 # Claude Code wrapper — auth mode selection:
 #   CLAUDE_CODE_OAUTH_TOKEN set → long-lived subscription OAuth token (sk-ant-oat01-...)
@@ -80,6 +78,13 @@ RUN if [ -e /usr/local/bin/codex ]; then \
     mv /usr/local/bin/codex /usr/local/bin/codex-real && \
     printf '#!/bin/sh\nunset NODE_OPTIONS\nexport NODE_OPTIONS="--max-old-space-size=4096 --no-deprecation --no-warnings"\nexec /usr/local/bin/codex-real "$@"\n' > /usr/local/bin/codex && \
     chmod +x /usr/local/bin/codex; \
+fi
+
+# OpenCode wrapper — drops cloudflare NODE_OPTIONS, caps heap size
+RUN if [ -e /usr/local/bin/opencode ]; then \
+    mv /usr/local/bin/opencode /usr/local/bin/opencode-real && \
+    printf '#!/bin/sh\nunset NODE_OPTIONS\nexport NODE_OPTIONS="--max-old-space-size=4096 --no-deprecation --no-warnings"\nexec /usr/local/bin/opencode-real "$@"\n' > /usr/local/bin/opencode && \
+    chmod +x /usr/local/bin/opencode; \
 fi
 
 # Gemini wrapper — fix for "Failed to relaunch the CLI process":
