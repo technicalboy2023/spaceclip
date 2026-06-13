@@ -178,7 +178,7 @@ fi
 
 # ── Cloudflare proxy flag (applied inline to Paperclip only, not exported globally)
 # Only enable if proxy is actually configured. Otherwise agent CLIs (claude, gemini,
-# codex) inherit it via subprocess env and break their HTTP requests.
+# codex, opencode) inherit it via subprocess env and break their HTTP requests.
 _CF_NODE_OPTS=""
 if [ -n "${CLOUDFLARE_PROXY_URL:-}" ] && [ -f /app/cloudflare-proxy.js ]; then
     _CF_NODE_OPTS="--require /app/cloudflare-proxy.js"
@@ -327,7 +327,7 @@ fi
 chown -R paperclip:paperclip /app /paperclip 2>/dev/null || true
 
 # ── Launch Paperclip as non-root ──────────────────────────────────────────────
-# Agent CLIs (claude, gemini, codex) refuse --dangerously-skip-permissions as root.
+# Agent CLIs (claude, gemini, codex, opencode) refuse --dangerously-skip-permissions as root.
 # Run Paperclip as 'paperclip' user so all spawned subprocesses are non-root.
 echo "Starting Paperclip..."
 HOME=/home/paperclip NODE_OPTIONS="${_CF_NODE_OPTS}" runuser -u paperclip -- \
